@@ -44,6 +44,12 @@ repositories {
 jar {
     baseName = 'jb-hello-world'
     version =  '0.1.0'
+    manifest {
+    attributes(
+      'Class-Path': configurations.compile.collect { it.getName() }.join(' '),
+      'Main-Class': 'hello.HelloWorld'
+    )
+  }
 }
 // end::jar[]
 
